@@ -1,156 +1,254 @@
-#XDroid 轻量级的Android快速开发框架
 
-## 概述
+## RapidAndroid
 
-<p align="center">
-	<img src="xdroid_logo_128.png"/>
-	
-</p>
-
-**XDroid**是一个轻量级的Android快速开发框架，由`UI`、`Cache`、`Event`、`ImageLoader`、`Kit`、`Log`、`Router`、`Net`等几个部分组成。其设计思想是使用接口对各模块解耦规范化，不强依赖某些明确的三方类库，使得三方类库可自由搭配组装，方便替换。可快速、自由的进行App开发。
+**RapidAndroid**是一个轻量级、模块化的Android快速开发框架，由```UI`、`Cache`、`Event`、`ImageLoader`、`Kit`、`Log`、`Router`、`Net`等几个部分组成。其设计思想是使用接口对各模块解耦规范化，不强依赖某些明确的三方类库，使得三方类库可自由搭配组装，方便替换。可快速、自由的进行App开发。
 
 > Demo详细使用可参看Demo
 
-
-## XDroid-Base
-
-XDroid-Base包含开发中常用的一些快速开发类，可作为一个简单的开发框架,由Base、Cache、ImageLoader、Kit、Log、Router等几个部分组成。可快速、自由的按需扩展进行App开发。
-
-传送门：[**https://github.com/fodroid/XDroid-Base**](https://github.com/fodroid/XDroid-Base)
-
-## XDroid-Databinding
-
-XDroid-Databinding是XDroid快速开发框架的Databinding版本，大部分源码也与XDroid类似。
-
-传送门：[**https://github.com/fodroid/XDroid-Databinding**](https://github.com/fodroid/XDroid-Databinding)
+## Rapid-Core
 
 
-## XDroidMvp
-
-XDroidMvp是基于XDroid的MVP实现，不是传统意义的MVP，不需写接口，可无缝切换MVC，可能是当前最好用的MVP框架。
-
-传送门：[**https://github.com/limedroid/XDroidMvp**](https://github.com/limedroid/XDroidMvp)
-
-## XDroidMvp-Databinding
-
-XDroidMvp-Databinding是基于XDroidMvp的Databinding版本，大部分源码也与XDroidMvp类似。
-
-传送门：开发中
+Rapid-Core核心基础库，所以其他库将依赖此库作为基础。由Cache(缓存)、Ext(扩展函数)、Log(日志)、Util(工具)等几个部分组成。
 
 
-XDroid推出以来，得到了很多朋友的快速反馈，目前有很多朋友在新项目或是老项目中使用XDroid，为了方便学习和交流，可以加入QQ群：
+## 目录
 
-XDroid交流群：**153569290**
+* [功能介绍](#功能介绍)
+* [效果图与示例 apk](#效果图与示例-apk)
+* [Gradle 依赖](#Gradle依赖)
+* [简单使用](#简单使用)
+* [详细说明](#详细说明)
+* [更新日志](#更新日志)
+* [License](#license)
+
+## 功能介绍
+
+- [x] 实现android版本更新
+- [x] 对kotlin适配，调用更简单
+- [x] 自定义接口协议，可以不改变现有项目的协议就能使用
+- [x] 支持get,post请求
+- [x] 支持进度显示，对话框进度条，和通知栏进度条展示
+- [x] 支持后台下载
+- [x] 支持强制更新
+- [x] 支持简单主题色配置(可以自动从顶部图片提取主色)
+- [x] 支持自定义对话框（可以监听下载进度）
+- [x] 支持静默下载（可以设置wifi状态下）
+- [x] 支持android7.0
+
+## 效果图与示例 apk
+
+<img src="https://raw.githubusercontent.com/WVector/AppUpdateDemo/master/image/example_01.png?raw=true" width="1000">
+
+<img src="https://raw.githubusercontent.com/WVector/AppUpdateDemo/master/image/example_02.png?raw=true" width="1000">
+
+<img src="https://raw.githubusercontent.com/WVector/AppUpdateDemo/master/image/example_03.png?raw=true" width="1000">
+
+<img src="https://raw.githubusercontent.com/WVector/AppUpdateDemo/master/image/example_05.png" width="1000">
+
+<img src="https://raw.githubusercontent.com/WVector/AppUpdateDemo/master/image/example_06.png" width="1000">
+
+	
+[点击下载 Demo.apk](https://raw.githubusercontent.com/WVector/AppUpdateDemo/master/apk/sample-debug.apk) 或扫描下面的二维码安装
+
+![Demo apk文件二维](https://raw.githubusercontent.com/WVector/AppUpdateDemo/master/image/1498810770.png)
 
 
-## 特性
 
-**XDroid**主要有这些特性：
+## Gradle 依赖
 
-* 基于MVC，可快速切换到MVP
-* 提供`XActivity`、`XFragment`、`SimpleRecAdapter`、`SimpleListAdapte`r等基类，可快速进行开发
-* 完整封装XRecyclerView，可实现绝大部分需求
-* QTContentLayout、XRecyclerContentLayout实现loading、error、empty、content四种状态的自由切换
-* 实现了Memory、Disk、SharedPreferences三种方式的缓存，可自由扩展
-* 内置了`EventBus`，可自由切换到其他事件订阅库
-* 内置`Glide`，可自由切换其他图片加载库
-* 可输出漂亮的`Log`，支持Json、Xml、Throwable等，蝇量级实现
-* 内置链式路由
-* 内置常用工具类：package、random、file...,提供的都是非常常用的方法
-* 内置加密工具类 `XCodec`，你想要的加密姿势都有
-* 默认使用`okhttputils`作为api请求，可任性切换retrofit等其他库
-* 引入三方库极少
+**java方式引用**
 
-
-详细说明请前往[wiki](https://github.com/limedroid/XDroid/wiki)
-
-
-## Get Started
-
-使用，仅需四步：
-
-### step1  
-
-clone 'XDroid'库到本地:
-```groovy
-git clone https://github.com/limedroid/XDroid.git
-```
-
-### step2
-
-将library作为依赖库，在您的app module 中 添加如下依赖:
-```groovy
-compile project(':library')
-```
-
-### step3
-
-拷贝`conf.gradle`到您的项目根目录，并修改项目gradle文件下引入：
-```groovy
-apply from: "conf.gradle"
-```
-
-并添加:
-
-```groovy
-allprojects {
-    repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }
-    }
+```gradle
+dependencies {
+    compile 'com.qianwen:update-app:3.5.2'
 }
 ```
 
-### step4
-
-修改`XDroidConf`配置类，主要针对log、cache、router、imageloader。若采用默认配置，此步骤可略过.
+[![Download](https://api.bintray.com/packages/qianwen/maven/update-app/images/download.svg) ](https://bintray.com/qianwen/maven/update-app/_latestVersion) [![API](https://img.shields.io/badge/API-14%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=14) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GitHub stars](https://img.shields.io/github/stars/WVector/AppUpdate.svg?style=plastic&label=Star) ](https://github.com/WVector/AppUpdate)
 
 
-## Demo效果
+**kotlin方式引用**
 
-<p align="center">
-	<img src="art/snapshot_2.png"/>
-</p>
+```gradle
+dependencies {
+    compile 'com.qianwen:update-app-kotlin:1.2.3'
+}
+```
 
-<p align="center">
-	<img src="art/snapshot_1.png"/>
-</p>
-
-
-## 重要说明
-
-* [ButterKnife](https://github.com/JakeWharton/butterknife)使用的是8.4.0版本，重点是 `@BindView`，可以去项目官网查看。
-* [EventBus](https://github.com/greenrobot/EventBus)使用的是3.0.0版本,使用注解`@Subscribe`，具体如何使用可以查看官网。
-
-## ToDo
-
-* MVP、retrofit、rx迁移（v2.0）
-* 权限适配（v2.0）
-* compact工具（v3.0）
+[![Download](https://api.bintray.com/packages/qianwen/maven/update-app-kotlin/images/download.svg) ](https://bintray.com/qianwen/maven/update-app/_latestVersion) [![API](https://img.shields.io/badge/API-14%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=14) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GitHub stars](https://img.shields.io/github/stars/WVector/AppUpdate.svg?style=plastic&label=Star) ](https://github.com/WVector/AppUpdate)
 
 
-## 相关文档
-
-[我是如何搭建Android快速开发框架的(概述)](http://www.jianshu.com/p/cde5468029b4)
-
-[我是如何搭建Android快速开发框架的之UI篇(上)](http://www.jianshu.com/p/c909f72cdd02)
-
-## 感谢
-
-* 感谢干货提供的api
+## 简单使用
 
 
-# 关于我们
-### droidlover
-**Email** : droidlover@126.com
 
-**Github** : https://github.com/limedroid
+1,java方式
 
-**简书**：http://www.jianshu.com/u/276be5744ca0
-### fodroid
-**Email** : me.shihao@qq.com
+```java
+	new UpdateAppManager
+                .Builder()
+                //当前Activity
+                .setActivity(this)
+                //更新地址
+                .setUpdateUrl(mUpdateUrl)
+                //实现httpManager接口的对象
+                .setHttpManager(new UpdateAppHttpUtil())
+                .build()
+                .update();
+```
+2,kotlin方式
 
-**Github** : https://github.com/fodroid
+```kotlin
+	updateApp(mUpdateUrl, UpdateAppHttpUtil()).update()
+```
 
-**简书**：http://www.jianshu.com/u/caf7ea3607ed
+## 详细说明
 
+- [java方式](java.md)
+- [kotlin方式](kotlin.md)
+
+#### 进度条使用的是代码家的「[NumberProgressBar](https://github.com/daimajia/NumberProgressBar)」
+
+## 更新日志
+
+kotlin版本是依赖java版本的，所以java版本的问题kotlin自然修复
+
+
+v3.5.2
+
+	1，修复下载过程中，关闭对话框不能自动安装问题。
+
+v3.5.1
+
+	1，修复bug
+
+v3.5.0
+
+	1，优化强制更新 
+
+v3.4.8 
+
+	1,修复bug
+	
+v3.4.7 
+
+	1,优化 APP 安装的问题
+	
+v3.4.6 
+
+	1,优化 APP 安装的问题
+
+v3.4.5
+
+	1，增加全局异常捕获方法
+	
+	                .handleException(new ExceptionHandler() 						{
+                    @Override
+                    public void onException(Exception e) {
+
+                    }
+                })
+
+v3.4.4
+
+	1，修复bug
+[bug](https://github.com/WVector/AppUpdate/pull/68)
+
+v3.4.3
+
+	1，修复bug
+[bug](https://github.com/WVector/AppUpdate/pull/67)
+   
+v3.4.2
+
+	1,修复bug
+[bug](https://github.com/WVector/AppUpdate/pull/66)
+
+v3.4.1
+
+	1,给插件使用者更多的配置和开启一些钩子方便适配不同的业务需求
+	2,适配android8.0
+
+感谢[Jiiiiiin](https://github.com/Jiiiiiin)对项目的维护
+
+v3.4.0
+
+	1,修复  
+[issues#59](https://github.com/WVector/AppUpdate/issues/59)
+
+
+
+v3.3.9
+
+	1,适配android8.0的通知和安装未知来源的app
+
+感谢[typ0520](https://github.com/typ0520)对项目的维护
+
+v3.3.8
+
+	1,增加存储空间权限申请
+
+V3.3.7
+	
+	1,修改默认安装包下载路径为download/packageName
+
+感谢[bean-liu](https://github.com/bean-liu)对项目的维护
+
+V3.3.6
+	
+	1,去掉对下载路径前缀的校验。
+[https://github.com/WVector/AppUpdate/issues/26](https://github.com/WVector/AppUpdate/issues/26)
+
+V3.3.5
+
+	1，修复升级对话框布局中的问题。
+	2，修复静默下载，关闭更新弹窗 再点击更新 一直显示的问题。
+[https://github.com/WVector/AppUpdate/issues/21](https://github.com/WVector/AppUpdate/issues/21)
+
+V3.3.4
+
+	1，修复对话框更新内容过多，升级按钮被挤压的问题。
+	2，去掉自动从图片提取颜色的功能， 通过.setThemeColor()设置按钮和精度条颜色，
+	3，兼容compileSdkVersion <25
+
+V3.3.3
+
+	1，修复下载路径是重定向路径不能下载的问题
+
+V3.3.2
+
+	1，修复正在下载时，返回桌面报错的问题
+[https://github.com/WVector/AppUpdate/issues/14](https://github.com/WVector/AppUpdate/issues/14)
+
+V3.3.1
+
+	1，修复对话框外可以点击的问题
+
+V3.3.0 
+
+	1，可以设置不显示通知栏进度条。
+	2，可以设置忽略版本。 
+	3，优化下载时页面卡的问题（由于下载进度回调调用频繁，造成ui线程阻塞）。
+	4，可以静默下载，类似网易云音乐，并且设置wifi状态下。
+
+ V3.2.9 
+
+	1，新增自定义对话框。
+	2，适配kotlin，写法更简单。 
+
+
+## License
+
+   	Copyright 2017 千匍
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
